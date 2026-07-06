@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda — Radiadores San Pedro | Catálogo con fotos y precios</title>
+<meta name="description" content="Catálogo online de Radiadores San Pedro: radiadores, baterías y repuestos de línea pesada con fotos. Comprá online y recibilo en todo el país.">
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%230E2A4E"/><path d="M14 46 A22 22 0 0 1 14 18" stroke="%23E01F26" stroke-width="7" fill="none" stroke-linecap="round"/><text x="24" y="42" font-family="Arial Black,Arial" font-weight="900" font-size="24" fill="white">RSP</text></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0E2A4E; --navy-deep:#081B33; --navy-ink:#0A2140;
+  --red:#E01F26; --red-dark:#B4151B;
+  --steel:#8FA3BC; --steel-dim:#5C7292;
+  --paper:#F2F0EB; --paper-dim:#E3DFD4; --white:#fff;
+  --whatsapp:#25D366;
+  --display:'Big Shoulders Display',sans-serif;
+  --body:'Archivo',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--paper);color:var(--navy-deep);-webkit-font-smoothing:antialiased}
+::selection{background:var(--red);color:#fff}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:.95}
+.wrap{width:min(1280px,94%);margin:0 auto}
+button{font-family:var(--body)}
+
+/* ── Header ── */
+header{position:sticky;top:0;z-index:100;background:var(--navy-deep);border-bottom:3px solid var(--red)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;gap:1rem}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:#fff;min-width:0}
+.logo svg{height:40px;width:auto;flex-shrink:0}
+.logo-txt{display:flex;flex-direction:column;line-height:1}
+.logo-txt b{font-family:var(--display);font-weight:800;font-size:1.1rem;letter-spacing:.05em;white-space:nowrap}
+.logo-txt small{font-size:.55rem;letter-spacing:.28em;color:var(--steel);text-transform:uppercase;margin-top:.2rem}
+.head-actions{display:flex;gap:.7rem;align-items:center}
+.back-link{color:var(--steel);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.back-link:hover{color:#fff}
+.cart-btn{
+  position:relative;background:var(--red);color:#fff;border:0;cursor:pointer;
+  display:flex;align-items:center;gap:.5rem;padding:.7rem 1.1rem;font-weight:700;
+  font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+  clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);
+}
+.cart-btn svg{width:18px;height:18px}
+.cart-count{
+  background:#fff;color:var(--red);font-weight:800;border-radius:999px;
+  min-width:20px;height:20px;display:grid;place-items:center;font-size:.72rem;padding:0 4px;
+}
+@media(max-width:640px){.back-link{display:none}.logo-txt small{display:none}}
+
+/* ── Store hero strip ── */
+.store-hero{background:var(--navy-ink);color:#fff;padding:2.2rem 0;border-bottom:1px solid rgba(143,163,188,.15)}
+.store-hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:900}
+.store-hero h1 i{font-style:normal;color:var(--red)}
+.store-hero p{color:var(--steel);margin-top:.5rem;font-size:.95rem;max-width:70ch}
+.store-hero p b{color:#fff}
+
+/* ── Toolbar ── */
+.toolbar{position:sticky;top:70px;z-index:90;background:var(--paper);border-bottom:2px solid var(--navy);padding:1rem 0}
+.toolbar .wrap{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+.search{
+  flex:1;min-width:220px;display:flex;align-items:center;gap:.6rem;background:#fff;
+  border:2px solid var(--navy);padding:.65rem .9rem;
+}
+.search svg{width:17px;height:17px;color:var(--steel-dim);flex-shrink:0}
+.search input{border:0;outline:0;flex:1;font-size:.95rem;background:transparent;color:var(--navy-deep);font-family:var(--body)}
+.cats{display:flex;gap:.45rem;flex-wrap:wrap}
+.cat-chip{
+  border:2px solid var(--navy);background:transparent;color:var(--navy);cursor:pointer;
+  font-family:var(--display);font-weight:700;font-size:.9rem;letter-spacing:.05em;
+  text-transform:uppercase;padding:.5rem .9rem;transition:.15s;
+}
+.cat-chip.act,.cat-chip:hover{background:var(--navy);color:#fff}
+.cat-chip.act{box-shadow:3px 3px 0 var(--red)}
+.sub-select{
+  border:2px solid var(--navy);background:#fff;color:var(--navy-deep);padding:.55rem .7rem;
+  font-family:var(--body);font-weight:600;font-size:.85rem;cursor:pointer;max-width:230px;
+}
+.count-line{font-size:.8rem;color:var(--steel-dim);font-weight:600;letter-spacing:.05em;width:100%}
+.count-line b{color:var(--red)}
+
+/* ── Grid ── */
+main{padding:2rem 0 4rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+.card{
+  background:#fff;border:1px solid var(--paper-dim);display:flex;flex-direction:column;
+  transition:transform .15s,box-shadow .15s;position:relative;overflow:hidden;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(8,27,51,.14)}
+.card-img{
+  aspect-ratio:1/.85;background:#0b0b0d;display:grid;place-items:center;cursor:zoom-in;
+  border-bottom:3px solid var(--navy);overflow:hidden;
+}
+.card-img img{width:100%;height:100%;object-fit:contain;padding:.6rem}
+.card-img .noimg{color:#2c3d55;display:flex;flex-direction:column;align-items:center;gap:.4rem;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase}
+.card-img .noimg svg{width:44px;height:44px;opacity:.55}
+.card-body{padding:.9rem 1rem 1rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.card-tags{display:flex;gap:.4rem;flex-wrap:wrap}
+.tag{
+  font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:.2rem .5rem;background:var(--navy);color:#fff;
+}
+.tag.code{background:transparent;color:var(--red);border:1px solid var(--red)}
+.card h3{
+  font-family:var(--body);font-size:.85rem;font-weight:600;line-height:1.45;
+  text-transform:none;flex:1;color:var(--navy-deep);
+}
+.price{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:.02em}
+.price.consultar{font-size:1.05rem;color:var(--steel-dim);font-weight:700}
+.card-btns{display:flex;gap:.5rem}
+.abtn{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:.4rem;border:0;cursor:pointer;
+  font-weight:700;font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;
+  padding:.7rem .5rem;text-decoration:none;transition:filter .15s;font-family:var(--body);
+}
+.abtn:hover{filter:brightness(1.1)}
+.abtn-cart{background:var(--navy);color:#fff}
+.abtn-wa{background:var(--whatsapp);color:#06340f}
+.abtn svg{width:14px;height:14px;flex-shrink:0}
+.card .pid{position:absolute;top:.4rem;right:.55rem;font-size:.58rem;color:rgba(255,255,255,.5);letter-spacing:.08em;z-index:2}
+.more-box{text-align:center;margin-top:2.2rem}
+.more-btn{
+  background:var(--red);color:#fff;border:0;cursor:pointer;font-family:var(--display);
+  font-weight:800;font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:1rem 2.6rem;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+  transition:transform .15s;
+}
+.more-btn:hover{transform:translateY(-2px)}
+.empty{text-align:center;padding:4rem 1rem;color:var(--steel-dim)}
+.empty b{display:block;font-family:var(--display);font-size:1.8rem;text-transform:uppercase;color:var(--navy-deep);margin-bottom:.6rem}
+.empty a{color:var(--red);font-weight:700}
+
+/* ── Cart drawer ── */
+.overlay{position:fixed;inset:0;background:rgba(8,27,51,.6);backdrop-filter:blur(3px);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s}
+.overlay.open{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(430px,100%);background:var(--navy-deep);color:#fff;
+  z-index:210;transform:translateX(105%);transition:transform .3s;display:flex;flex-direction:column;
+  border-left:3px solid var(--red);
+}
+.drawer.open{transform:none}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:1.3rem 1.4rem;border-bottom:1px solid rgba(143,163,188,.2)}
+.drawer-head h2{font-size:1.6rem;font-weight:900}
+.drawer-head h2 i{font-style:normal;color:var(--red)}
+.close-x{background:none;border:0;color:var(--steel);cursor:pointer;font-size:1.6rem;line-height:1;padding:.2rem .5rem}
+.close-x:hover{color:#fff}
+.drawer-items{flex:1;overflow-y:auto;padding:1rem 1.4rem;display:flex;flex-direction:column;gap:.9rem}
+.d-item{display:flex;gap:.8rem;background:rgba(255,255,255,.04);border:1px solid rgba(143,163,188,.15);padding:.7rem}
+.d-item img{width:58px;height:58px;object-fit:contain;background:#0b0b0d;flex-shrink:0}
+.d-item .d-noimg{width:58px;height:58px;background:#0b0b0d;display:grid;place-items:center;color:#2c3d55;flex-shrink:0}
+.d-info{flex:1;min-width:0}
+.d-info p{font-size:.76rem;line-height:1.35;color:#dbe4ef;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.d-price{font-size:.8rem;color:var(--steel);margin-top:.3rem;font-weight:600}
+.d-price b{color:#fff}
+.qty{display:flex;align-items:center;gap:.5rem;margin-top:.4rem}
+.qty button{
+  width:24px;height:24px;border:1px solid var(--steel-dim);background:transparent;color:#fff;
+  cursor:pointer;font-weight:700;display:grid;place-items:center;font-size:.9rem;
+}
+.qty button:hover{border-color:#fff}
+.qty span{font-weight:700;font-size:.85rem;min-width:18px;text-align:center}
+.d-del{background:none;border:0;color:var(--steel-dim);cursor:pointer;font-size:1rem;align-self:flex-start}
+.d-del:hover{color:var(--red)}
+.drawer-empty{text-align:center;color:var(--steel);padding:3rem 1rem;font-size:.9rem;line-height:1.6}
+.drawer-foot{padding:1.2rem 1.4rem;border-top:1px solid rgba(143,163,188,.2);display:flex;flex-direction:column;gap:.8rem}
+.total-line{display:flex;justify-content:space-between;font-size:.85rem;color:var(--steel)}
+.total-line.grand{font-size:1.05rem;color:#fff;font-weight:700}
+.total-line.grand b{font-family:var(--display);font-size:1.6rem;color:#fff}
+.note{font-size:.72rem;color:var(--steel);line-height:1.5}
+.checkout-btn{
+  background:var(--whatsapp);color:#06340f;border:0;cursor:pointer;display:flex;align-items:center;
+  justify-content:center;gap:.6rem;padding:1rem;font-weight:800;font-size:.9rem;letter-spacing:.06em;
+  text-transform:uppercase;font-family:var(--body);
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+}
+.checkout-btn:hover{filter:brightness(1.08)}
+.mp-btn{
+  background:#00AEEF;color:#04263a;text-decoration:none;display:flex;align-items:center;justify-content:center;
+  gap:.5rem;padding:.85rem;font-weight:800;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+}
+
+/* ── Lightbox ── */
+.lightbox{
+  position:fixed;inset:0;background:rgba(4,12,24,.92);z-index:300;display:none;
+  place-items:center;padding:2rem;cursor:zoom-out;
+}
+.lightbox.open{display:grid}
+.lightbox img{max-width:min(720px,92vw);max-height:80vh;object-fit:contain;background:#0b0b0d;padding:1rem}
+.lightbox p{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);color:#fff;font-size:.85rem;max-width:80ch;text-align:center}
+
+/* ── Toast ── */
+.toast{
+  position:fixed;bottom:1.6rem;left:50%;transform:translate(-50%,150%);z-index:400;
+  background:var(--navy);color:#fff;padding:.85rem 1.5rem;font-weight:600;font-size:.85rem;
+  border-left:4px solid var(--whatsapp);transition:transform .3s;box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+.toast.show{transform:translate(-50%,0)}
+
+footer{background:var(--navy-deep);color:var(--steel);padding:1.6rem 0;border-top:3px solid var(--red);font-size:.78rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer a{color:#fff;text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html">
+      <svg viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M26 56 A26 26 0 0 1 26 8" stroke="#E01F26" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <text x="34" y="45" font-family="'Big Shoulders Display',Arial" font-weight="900" font-size="34" fill="#FFFFFF" letter-spacing="1">RSP</text>
+      </svg>
+      <span class="logo-txt">
+        <b>Radiadores San Pedro</b>
+        <small>Tienda · Catálogo 2026</small>
+      </span>
+    </a>
+    <div class="head-actions">
+      <a class="back-link" href="index.html">← Volver a la web</a>
+      <button class="cart-btn" id="openCart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l2.6 12.4a1 1 0 0 0 1 .6h8.9a1 1 0 0 0 1-.7L21 7H6"/><circle cx="9.5" cy="20" r="1.5"/><circle cx="17.5" cy="20" r="1.5"/></svg>
+        Pedido
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="store-hero">
+  <div class="wrap">
+    <h1>Catálogo <i>online</i></h1>
+    <p>Todos nuestros productos con foto, categorizados y listos para pedir. Los productos con precio se compran al instante; en los demás tocá <b>Consultar</b> y te pasamos precio al momento por WhatsApp. <b>Envíos a todo el país.</b></p>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="wrap">
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Buscar: Sprinter, retén, 12x75, RCD116…" aria-label="Buscar producto">
+    </label>
+    <div class="cats" id="cats">
+      <button class="cat-chip act" data-c="todos">Todos</button>
+      <button class="cat-chip" data-c="radiadores">Radiadores</button>
+      <button class="cat-chip" data-c="agro">Agro y vial</button>
+      <button class="cat-chip" data-c="baterias">Baterías</button>
+      <button class="cat-chip" data-c="repuestos">Repuestos</button>
+      <button class="cat-chip" data-c="taller">Taller</button>
+    </div>
+    <select class="sub-select" id="subSel" hidden></select>
+    <div class="count-line" id="countLine"></div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div class="grid" id="grid"></div>
+    <div class="more-box" id="moreBox" hidden>
+      <button class="more-btn" id="moreBtn">Mostrar más productos</button>
+    </div>
+  </div>
+</main>
+
+<!-- Cart drawer -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Pedido">
+  <div class="drawer-head">
+    <h2>Tu <i>pedido</i></h2>
+    <button class="close-x" id="closeCart" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="drawer-items" id="drawerItems"></div>
+  <div class="drawer-foot" id="drawerFoot"></div>
+</aside>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <img id="lbImg" alt="Foto del producto">
+  <p id="lbCap"></p>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="wrap">
+    <span><a href="index.html">Radiadores San Pedro</a> · Alejandro Maino 2647, San Pedro, Bs. As.</span>
+    <span>WhatsApp <a href="https://wa.me/5493329684352" target="_blank" rel="noopener">3329 68-4352</a> · Envíos a todo el país</span>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script src="precios.js"></script>
+<script>
+/* ═══════════ TIENDA RSP ═══════════ */
+const WA = (typeof CONFIG !== 'undefined' && CONFIG.whatsapp) || '5493329684352';
+const CAT_NAMES = {radiadores:'Radiadores',agro:'Agro y vial',baterias:'Baterías',repuestos:'Repuestos',taller:'Taller'};
+const fmt = n => '$' + n.toLocaleString('es-AR');
+const titulo = s => s.length > 110 ? s.slice(0,107) + '…' : s;
+
+let cat = 'todos', sub = '', term = '', shown = 48;
+const grid = document.getElementById('grid');
+const q = document.getElementById('q');
+const subSel = document.getElementById('subSel');
+const countLine = document.getElementById('countLine');
+const moreBox = document.getElementById('moreBox');
+
+function precioDe(p){ return (typeof PRECIOS !== 'undefined' && PRECIOS[p.id]) || null; }
+
+function filtered(){
+  const t = term.toLowerCase();
+  return PRODUCTS.filter(p =>
+    (cat === 'todos' || p.cat === cat) &&
+    (!sub || p.sub === sub) &&
+    (!t || (p.name + ' ' + (p.code||'') + ' ' + (p.sub||'')).toLowerCase().includes(t))
+  );
+}
+
+function subOptions(){
+  if (cat === 'todos' || cat === 'taller') { subSel.hidden = true; sub=''; return; }
+  const subs = [...new Set(PRODUCTS.filter(p=>p.cat===cat).map(p=>p.sub).filter(Boolean))].sort();
+  subSel.innerHTML = `<option value="">${cat==='radiadores'||cat==='agro'?'Todas las marcas':'Todas las categorías'}</option>` +
+    subs.map(s=>`<option${s===sub?' selected':''}>${s}</option>`).join('');
+  subSel.hidden = false;
+}
+
+function waConsulta(p){
+  const msg = `Hola! Quiero consultar precio y disponibilidad de:\n${p.name}${p.code ? ' (código '+p.code+')' : ''}${p.sub ? ' — '+p.sub : ''}`;
+  return `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+}
+
+function card(p){
+  const precio = precioDe(p);
+  const imgHtml = p.img
+    ? `<img loading="lazy" src="img/productos/${p.img}" alt="${titulo(p.name)}" onerror="this.parentElement.innerHTML=noImgHtml()">`
+    : noImgHtml();
+  return `<article class="card">
+    <span class="pid">${p.id}</span>
+    <div class="card-img" onclick="openLb('${p.img||''}',this)" data-name="${encodeURIComponent(titulo(p.name))}">${imgHtml}</div>
+    <div class="card-body">
+      <div class="card-tags">
+        <span class="tag">${p.sub || CAT_NAMES[p.cat]}</span>
+        ${p.code ? `<span class="tag code">${p.code}</span>` : ''}
+      </div>
+      <h3>${titulo(p.name)}</h3>
+      <div class="price ${precio?'':'consultar'}">${precio ? fmt(precio) : 'Consultar precio'}</div>
+      <div class="card-btns">
+        <button class="abtn abtn-cart" onclick="addCart('${p.id}')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3h2l2.6 12.4a1 1 0 0 0 1 .6h8.9a1 1 0 0 0 1-.7L21 7H6"/><circle cx="9.5" cy="20" r="1.5"/><circle cx="17.5" cy="20" r="1.5"/></svg>
+          Agregar
+        </button>
+        <a class="abtn abtn-wa" href="${waConsulta(p)}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>
+          Consultar
+        </a>
+      </div>
+    </div>
+  </article>`;
+}
+function noImgHtml(){
+  return `<div class="noimg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="m5 19 5-5 3 3 3-4 3 4"/></svg>Consultar foto</div>`;
+}
+
+function render(reset){
+  if (reset) shown = 48;
+  const list = filtered();
+  countLine.innerHTML = `<b>${list.length}</b> producto${list.length===1?'':'s'} ${cat!=='todos' ? 'en '+CAT_NAMES[cat] : ''} ${sub? '· '+sub : ''} ${term ? '· "'+term+'"' : ''}`;
+  if (!list.length){
+    grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><b>No encontramos "${term}"</b>
+      Seguro lo conseguimos igual — <a href="https://wa.me/${WA}?text=${encodeURIComponent('Hola! Estoy buscando: '+term)}" target="_blank" rel="noopener">preguntanos por WhatsApp →</a></div>`;
+    moreBox.hidden = true;
+    return;
+  }
+  grid.innerHTML = list.slice(0, shown).map(card).join('');
+  moreBox.hidden = list.length <= shown;
+}
+
+document.querySelectorAll('.cat-chip').forEach(ch => ch.addEventListener('click', () => {
+  document.querySelectorAll('.cat-chip').forEach(x=>x.classList.remove('act'));
+  ch.classList.add('act');
+  cat = ch.dataset.c; sub = '';
+  subOptions(); render(true);
+}));
+subSel.addEventListener('change', () => { sub = subSel.value; render(true); });
+q.addEventListener('input', () => { term = q.value.trim(); render(true); });
+document.getElementById('moreBtn').addEventListener('click', () => { shown += 48; render(false); });
+
+/* ═══════════ LIGHTBOX ═══════════ */
+const lb = document.getElementById('lightbox');
+function openLb(img, el){
+  if (!img) return;
+  document.getElementById('lbImg').src = 'img/productos/' + img;
+  document.getElementById('lbCap').textContent = decodeURIComponent(el.dataset.name || '');
+  lb.classList.add('open');
+}
+lb.addEventListener('click', () => lb.classList.remove('open'));
+
+/* ═══════════ CARRITO ═══════════ */
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem('rsp-cart') || '[]'); } catch {}
+const drawer = document.getElementById('drawer');
+const overlay = document.getElementById('overlay');
+
+function saveCart(){ localStorage.setItem('rsp-cart', JSON.stringify(cart)); updateCount(); }
+function updateCount(){
+  document.getElementById('cartCount').textContent = cart.reduce((a,i)=>a+i.qty,0);
+}
+function addCart(id){
+  const found = cart.find(i => i.id === id);
+  if (found) found.qty++;
+  else cart.push({ id, qty: 1 });
+  saveCart(); toast('Agregado al pedido ✓');
+  renderCart();
+}
+function setQty(id, d){
+  const it = cart.find(i=>i.id===id);
+  if (!it) return;
+  it.qty += d;
+  if (it.qty <= 0) cart = cart.filter(i=>i.id!==id);
+  saveCart(); renderCart();
+}
+function delItem(id){ cart = cart.filter(i=>i.id!==id); saveCart(); renderCart(); }
+
+function renderCart(){
+  const box = document.getElementById('drawerItems');
+  const foot = document.getElementById('drawerFoot');
+  if (!cart.length){
+    box.innerHTML = `<div class="drawer-empty">Tu pedido está vacío.<br>Agregá productos del catálogo y armá tu compra.</div>`;
+    foot.innerHTML = '';
+    return;
+  }
+  let total = 0, sinPrecio = 0;
+  box.innerHTML = cart.map(it => {
+    const p = PRODUCTS.find(x=>x.id===it.id);
+    if (!p) return '';
+    const precio = precioDe(p);
+    if (precio) total += precio * it.qty; else sinPrecio += it.qty;
+    return `<div class="d-item">
+      ${p.img ? `<img src="img/productos/${p.img}" alt="">` : `<div class="d-noimg">—</div>`}
+      <div class="d-info">
+        <p>${titulo(p.name)}</p>
+        <div class="d-price">${precio ? `<b>${fmt(precio)}</b> c/u` : 'Precio a confirmar'}</div>
+        <div class="qty">
+          <button onclick="setQty('${it.id}',-1)">−</button><span>${it.qty}</span><button onclick="setQty('${it.id}',1)">+</button>
+        </div>
+      </div>
+      <button class="d-del" onclick="delItem('${it.id}')" aria-label="Quitar">✕</button>
+    </div>`;
+  }).join('');
+  const mp = (typeof CONFIG !== 'undefined' && CONFIG.mercadopago) ? CONFIG.mercadopago : '';
+  foot.innerHTML = `
+    ${total ? `<div class="total-line grand"><span>Subtotal</span><b>${fmt(total)}</b></div>` : ''}
+    ${sinPrecio ? `<div class="total-line"><span>${sinPrecio} artículo${sinPrecio>1?'s':''} con precio a confirmar</span><span>—</span></div>` : ''}
+    <p class="note">Al enviar el pedido te confirmamos stock, total final y costo de envío${mp?'':' — y te mandamos el link de Mercado Pago para pagar'}. Retiro en el local o envío a todo el país.</p>
+    <button class="checkout-btn" onclick="checkout()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.3 1.5Z"/></svg>
+      Enviar pedido por WhatsApp
+    </button>
+    ${mp ? `<a class="mp-btn" href="${mp}" target="_blank" rel="noopener">Pagar con Mercado Pago</a>` : ''}
+  `;
+}
+function checkout(){
+  if (!cart.length) return;
+  let total = 0;
+  const lines = cart.map(it => {
+    const p = PRODUCTS.find(x=>x.id===it.id);
+    const precio = precioDe(p);
+    if (precio) total += precio * it.qty;
+    return `▪ ${it.qty}x ${titulo(p.name)}${p.code?' (cód. '+p.code+')':''}${precio ? ' — '+fmt(precio*it.qty) : ' — precio a confirmar'}`;
+  });
+  let msg = `Hola! Quiero hacer este pedido desde la tienda online:\n\n${lines.join('\n')}\n`;
+  if (total) msg += `\nSubtotal (artículos con precio): ${fmt(total)}\n`;
+  msg += `\n¿Me confirmás total, disponibilidad y envío?`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+document.getElementById('openCart').addEventListener('click', ()=>{ renderCart(); drawer.classList.add('open'); overlay.classList.add('open'); });
+document.getElementById('closeCart').addEventListener('click', closeCart);
+overlay.addEventListener('click', closeCart);
+function closeCart(){ drawer.classList.remove('open'); overlay.classList.remove('open'); }
+
+let toastTimer;
+function toast(t){
+  const el = document.getElementById('toast');
+  el.textContent = t; el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>el.classList.remove('show'), 1800);
+}
+
+/* init */
+updateCount();
+subOptions();
+render(true);
+
+/* deep-link: catalogo.html?cat=baterias&q=12x75 */
+const params = new URLSearchParams(location.search);
+if (params.get('cat')) {
+  const chip = document.querySelector(`.cat-chip[data-c="${params.get('cat')}"]`);
+  if (chip) chip.click();
+}
+if (params.get('q')) { q.value = params.get('q'); term = q.value; render(true); }
+</script>
+</body>
+</html>

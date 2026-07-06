@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radiadores San Pedro — Radiadores, Baterías y Repuestos | +45 años</title>
+<meta name="description" content="Empresa familiar con más de 45 años. Reparación y fabricación de radiadores, baterías, turbos y repuestos de línea pesada. Envíos a todo el país. San Pedro, Buenos Aires.">
+<meta property="og:title" content="Radiadores San Pedro — RSP">
+<meta property="og:description" content="Radiadores · Baterías · Repuestos. +45 años de trayectoria. Envíos a todo el país.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%230E2A4E"/><path d="M14 46 A22 22 0 0 1 14 18" stroke="%23E01F26" stroke-width="7" fill="none" stroke-linecap="round"/><text x="24" y="42" font-family="Arial Black,Arial" font-weight="900" font-size="24" fill="white">RSP</text></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0E2A4E;
+  --navy-deep:#081B33;
+  --navy-ink:#0A2140;
+  --red:#E01F26;
+  --red-dark:#B4151B;
+  --steel:#8FA3BC;
+  --steel-dim:#5C7292;
+  --paper:#F2F0EB;
+  --paper-dim:#E6E2D8;
+  --white:#FFFFFF;
+  --whatsapp:#25D366;
+  --display:'Big Shoulders Display',sans-serif;
+  --body:'Archivo',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:var(--navy-deep);
+  color:var(--white);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--red);color:#fff}
+
+/* ── Grain overlay ── */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9990;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+h1,h2,h3,.disp{font-family:var(--display);text-transform:uppercase;line-height:.92}
+img{max-width:100%}
+a{color:inherit}
+
+.wrap{width:min(1200px,92%);margin:0 auto}
+
+/* ── Topbar ── */
+.topbar{
+  background:var(--red);color:#fff;font-size:.78rem;font-weight:600;
+  letter-spacing:.04em;padding:.45rem 0;position:relative;z-index:60;
+}
+.topbar .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.topbar span{display:flex;align-items:center;gap:.4rem}
+.topbar a{text-decoration:none}
+@media(max-width:640px){.topbar .hide-m{display:none}}
+
+/* ── Nav ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(8,27,51,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(143,163,188,.18);
+}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.logo svg{height:44px;width:auto}
+.logo-txt{display:flex;flex-direction:column;line-height:1}
+.logo-txt b{font-family:var(--display);font-weight:800;font-size:1.25rem;letter-spacing:.05em}
+.logo-txt small{font-size:.6rem;letter-spacing:.32em;color:var(--steel);text-transform:uppercase;margin-top:.2rem}
+.nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
+.nav-links a{
+  text-decoration:none;font-size:.82rem;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--steel);transition:color .2s;
+}
+.nav-links a:hover{color:#fff}
+.nav-cta{
+  background:var(--whatsapp);color:#062b13!important;padding:.6rem 1.1rem;
+  font-weight:700;display:flex;align-items:center;gap:.45rem;
+  clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);
+  transition:transform .15s;
+}
+.nav-cta:hover{transform:translateY(-2px);color:#062b13!important}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:.4rem}
+.burger span{display:block;width:26px;height:3px;background:#fff;margin:5px 0;transition:.25s}
+@media(max-width:920px){
+  .nav-links{
+    position:fixed;inset:74px 0 auto 0;background:var(--navy-deep);
+    flex-direction:column;padding:2rem;gap:1.4rem;transform:translateY(-130%);
+    transition:transform .3s;border-bottom:2px solid var(--red);
+  }
+  .nav-links.open{transform:translateY(0)}
+  .burger{display:block}
+}
+
+/* ── Hero ── */
+.hero{position:relative;padding:6rem 0 5rem;overflow:hidden;background:
+  radial-gradient(1200px 600px at 80% -10%,rgba(224,31,38,.16),transparent 60%),
+  radial-gradient(900px 500px at -10% 110%,rgba(14,42,78,.9),transparent 60%),
+  var(--navy-deep);
+}
+.hero::before{ /* blueprint grid */
+  content:'';position:absolute;inset:0;opacity:.07;
+  background-image:linear-gradient(rgba(143,163,188,.7) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(143,163,188,.7) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse at 50% 40%,black,transparent 75%);
+}
+.hero::after{ /* diagonal red slash */
+  content:'';position:absolute;top:-10%;right:-22%;width:52%;height:130%;
+  background:linear-gradient(180deg,var(--red),var(--red-dark));
+  transform:skewX(-14deg);opacity:.9;z-index:0;
+}
+@media(max-width:920px){.hero::after{opacity:.25}}
+.hero .wrap{position:relative;z-index:2}
+.kicker{
+  display:inline-flex;align-items:center;gap:.6rem;font-size:.75rem;font-weight:700;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--steel);margin-bottom:1.4rem;
+}
+.kicker::before{content:'';width:34px;height:3px;background:var(--red)}
+.hero h1{
+  font-size:clamp(3.2rem,9vw,7.5rem);font-weight:900;letter-spacing:.01em;
+  max-width:12ch;
+}
+.hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.85)}
+.hero h1 .rojo{color:#fff;background:var(--red);padding:0 .12em;display:inline-block;transform:skewX(-6deg)}
+.hero p.lead{
+  margin:1.6rem 0 2.4rem;max-width:52ch;color:var(--steel);
+  font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.65;
+}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+  font-weight:700;font-size:.9rem;letter-spacing:.05em;text-transform:uppercase;
+  padding:1rem 1.7rem;transition:transform .15s,box-shadow .15s;
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+}
+.btn:hover{transform:translateY(-3px)}
+.btn-wa{background:var(--whatsapp);color:#062b13}
+.btn-red{background:var(--red);color:#fff}
+.btn-ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
+.btn-navy{background:var(--navy);color:#fff}
+.hero-stats{
+  display:flex;gap:0;margin-top:3.5rem;flex-wrap:wrap;
+  border:1px solid rgba(143,163,188,.25);width:fit-content;
+}
+.stat{padding:1.1rem 2rem;border-right:1px solid rgba(143,163,188,.25)}
+.stat:last-child{border-right:0}
+.stat b{font-family:var(--display);font-size:2.2rem;font-weight:800;display:block}
+.stat b i{color:var(--red);font-style:normal}
+.stat small{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--steel)}
+@media(max-width:640px){.stat{padding:.9rem 1.2rem}.stat b{font-size:1.7rem}}
+
+/* reveal animation */
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.hero .kicker{animation:rise .7s .05s both}
+.hero h1{animation:rise .7s .15s both}
+.hero p.lead{animation:rise .7s .3s both}
+.hero-ctas{animation:rise .7s .45s both}
+.hero-stats{animation:rise .7s .6s both}
+
+/* ── Marquee marcas ── */
+.marquee{
+  background:var(--paper);color:var(--navy-deep);overflow:hidden;
+  padding:1rem 0;border-top:4px solid var(--red);white-space:nowrap;
+}
+.marquee-track{display:inline-flex;gap:3.2rem;animation:scroll 36s linear infinite;padding-right:3.2rem}
+.marquee-track span{
+  font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:.06em;
+  text-transform:uppercase;display:flex;align-items:center;gap:3.2rem;
+}
+.marquee-track span::after{content:'✕';color:var(--red);font-size:1rem}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ── Secciones ── */
+section{padding:5.5rem 0;position:relative}
+.sec-head{margin-bottom:3rem}
+.sec-head h2{font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:900}
+.sec-head h2 i{font-style:normal;color:var(--red)}
+.sec-head p{color:var(--steel);max-width:60ch;margin-top:1rem;line-height:1.6}
+
+/* Servicios */
+#servicios{background:var(--navy-ink)}
+.serv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.serv{
+  border:1px solid rgba(143,163,188,.2);padding:2rem 1.7rem;position:relative;
+  background:linear-gradient(160deg,rgba(255,255,255,.03),transparent);
+  transition:transform .2s,border-color .2s;overflow:hidden;
+}
+.serv:hover{transform:translateY(-5px);border-color:var(--red)}
+.serv::before{
+  content:attr(data-n);position:absolute;top:.6rem;right:1rem;
+  font-family:var(--display);font-weight:900;font-size:3.4rem;
+  color:transparent;-webkit-text-stroke:1px rgba(143,163,188,.3);
+}
+.serv .ico{width:46px;height:46px;margin-bottom:1.2rem;color:var(--red)}
+.serv h3{font-size:1.5rem;font-weight:800;letter-spacing:.03em;margin-bottom:.7rem}
+.serv p{color:var(--steel);font-size:.92rem;line-height:1.6}
+.serv a{
+  display:inline-flex;align-items:center;gap:.4rem;margin-top:1.1rem;font-size:.78rem;
+  font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;text-decoration:none;
+}
+.serv a::after{content:'→';color:var(--red);transition:transform .2s}
+.serv a:hover::after{transform:translateX(4px)}
+
+/* ── Catálogo ── */
+#catalogo{background:var(--paper);color:var(--navy-deep)}
+#catalogo .sec-head p{color:#4b5a6e}
+.cat-tools{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:1.6rem}
+.cat-search{
+  flex:1;min-width:240px;display:flex;align-items:center;gap:.6rem;
+  background:#fff;border:2px solid var(--navy);padding:.8rem 1rem;
+}
+.cat-search svg{width:18px;height:18px;color:var(--steel-dim);flex-shrink:0}
+.cat-search input{
+  border:0;outline:0;flex:1;font-family:var(--body);font-size:.95rem;background:transparent;color:var(--navy-deep);
+}
+.chips{display:flex;gap:.5rem;flex-wrap:wrap}
+.chip{
+  border:2px solid var(--navy);background:transparent;color:var(--navy);
+  font-family:var(--display);font-weight:700;font-size:.95rem;letter-spacing:.05em;
+  text-transform:uppercase;padding:.55rem 1rem;cursor:pointer;transition:.15s;
+}
+.chip.act,.chip:hover{background:var(--navy);color:#fff}
+.chip.act{box-shadow:4px 4px 0 var(--red)}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.8rem;min-height:200px}
+.item{
+  background:#fff;border:1px solid var(--paper-dim);border-left:4px solid var(--navy);
+  padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.5rem;
+  transition:transform .15s,box-shadow .15s;
+}
+.item:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(8,27,51,.12)}
+.item .tag{
+  font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--red);display:flex;justify-content:space-between;gap:.5rem;
+}
+.item .tag em{color:var(--steel-dim);font-style:normal}
+.item h4{font-size:.92rem;font-weight:600;line-height:1.4;color:var(--navy-deep);flex:1}
+.item a{
+  align-self:flex-start;font-size:.72rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:#0b7a3a;text-decoration:none;display:flex;align-items:center;gap:.35rem;
+}
+.item a:hover{text-decoration:underline}
+.cat-empty{grid-column:1/-1;text-align:center;padding:3rem 1rem;color:#4b5a6e}
+.cat-empty b{display:block;font-family:var(--display);font-size:1.6rem;text-transform:uppercase;margin-bottom:.5rem;color:var(--navy-deep)}
+.cat-more{margin-top:2.2rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;justify-content:space-between;background:var(--navy-deep);color:#fff;padding:1.6rem 1.8rem}
+.cat-more p{color:var(--steel);font-size:.92rem;max-width:52ch}
+.cat-more p b{color:#fff}
+.cat-more .btns{display:flex;gap:.8rem;flex-wrap:wrap}
+
+/* ── Pagos ── */
+#pagos{background:var(--navy-deep)}
+.pay-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start}
+@media(max-width:920px){.pay-grid{grid-template-columns:1fr}}
+.steps{display:flex;flex-direction:column;gap:0;counter-reset:paso}
+.step{
+  display:flex;gap:1.4rem;padding:1.6rem 0;border-bottom:1px dashed rgba(143,163,188,.3);
+}
+.step:last-child{border-bottom:0}
+.step .n{
+  font-family:var(--display);font-weight:900;font-size:2.6rem;color:transparent;
+  -webkit-text-stroke:1.5px var(--red);line-height:1;min-width:64px;
+}
+.step h3{font-size:1.35rem;font-weight:800;margin-bottom:.4rem}
+.step p{color:var(--steel);font-size:.93rem;line-height:1.6}
+.pay-card{
+  border:1px solid rgba(143,163,188,.25);padding:2rem;
+  background:linear-gradient(160deg,rgba(255,255,255,.04),transparent);
+}
+.pay-card h3{font-size:1.6rem;font-weight:800;margin-bottom:1.4rem}
+.pay-method{display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(143,163,188,.15)}
+.pay-method:last-of-type{border-bottom:0}
+.pay-method .pm-ico{
+  width:44px;height:44px;flex-shrink:0;display:grid;place-items:center;
+  background:rgba(255,255,255,.06);border:1px solid rgba(143,163,188,.25);
+}
+.pay-method .pm-ico svg{width:22px;height:22px}
+.pay-method b{display:block;font-size:.95rem}
+.pay-method small{color:var(--steel);font-size:.8rem;line-height:1.4;display:block;margin-top:.15rem}
+.pay-card .btn{width:100%;justify-content:center;margin-top:1.6rem}
+
+/* ── Nosotros / reviews ── */
+#nosotros{background:var(--navy-ink);overflow:hidden}
+.nos-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center}
+@media(max-width:920px){.nos-grid{grid-template-columns:1fr}}
+.nos-txt p{color:var(--steel);line-height:1.75;margin-bottom:1.1rem}
+.nos-txt p b{color:#fff}
+.big-year{
+  font-family:var(--display);font-weight:900;font-size:clamp(6rem,14vw,11rem);
+  color:transparent;-webkit-text-stroke:2px rgba(224,31,38,.7);line-height:.8;
+  margin-bottom:1rem;
+}
+.reviews{display:flex;flex-direction:column;gap:1rem}
+.rev-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:.4rem}
+.rev-head b{font-family:var(--display);font-size:3rem;font-weight:900}
+.stars{color:#F5B301;letter-spacing:.15em;font-size:1.05rem}
+.rev-head small{color:var(--steel);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+.rev{
+  background:rgba(255,255,255,.04);border-left:3px solid var(--red);
+  padding:1.2rem 1.4rem;font-size:.95rem;line-height:1.6;color:#dbe4ef;
+}
+.rev small{display:block;margin-top:.6rem;color:var(--steel);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+
+/* ── Contacto / mapa ── */
+#contacto{background:var(--paper);color:var(--navy-deep);padding-bottom:0}
+#contacto .sec-head p{color:#4b5a6e}
+.con-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;margin-bottom:4rem}
+@media(max-width:920px){.con-grid{grid-template-columns:1fr}}
+.con-list{display:flex;flex-direction:column;gap:1.3rem}
+.con-item{display:flex;gap:1rem;align-items:flex-start}
+.con-item .pm-ico{
+  width:46px;height:46px;flex-shrink:0;display:grid;place-items:center;
+  background:var(--navy-deep);color:#fff;
+}
+.con-item .pm-ico svg{width:20px;height:20px}
+.con-item b{display:block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:.25rem}
+.con-item p,.con-item a{font-size:1rem;color:var(--navy-deep);text-decoration:none;line-height:1.5}
+.con-item a:hover{text-decoration:underline}
+.socials{display:flex;gap:.7rem;margin-top:1.6rem;flex-wrap:wrap}
+.soc{
+  display:flex;align-items:center;gap:.5rem;text-decoration:none;font-weight:700;
+  font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
+  border:2px solid var(--navy-deep);color:var(--navy-deep);padding:.65rem 1rem;transition:.15s;
+}
+.soc:hover{background:var(--navy-deep);color:#fff}
+.soc svg{width:17px;height:17px}
+.map-box{border:4px solid var(--navy-deep);box-shadow:10px 10px 0 var(--red);line-height:0}
+.map-box iframe{width:100%;height:420px;border:0;filter:grayscale(.2) contrast(1.05)}
+
+/* ── Footer ── */
+footer{background:var(--navy-deep);border-top:4px solid var(--red);padding:2.6rem 0}
+footer .wrap{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:center}
+footer p{color:var(--steel);font-size:.8rem;line-height:1.6}
+footer p b{color:#fff}
+.foot-nav{display:flex;gap:1.4rem;flex-wrap:wrap}
+.foot-nav a{color:var(--steel);text-decoration:none;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.foot-nav a:hover{color:#fff}
+
+/* ── WhatsApp float ── */
+.wa-float{
+  position:fixed;right:1.4rem;bottom:1.4rem;z-index:200;width:62px;height:62px;
+  background:var(--whatsapp);border-radius:50%;display:grid;place-items:center;
+  box-shadow:0 8px 28px rgba(37,211,102,.45);transition:transform .15s;
+}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:32px;height:32px;color:#fff}
+.wa-float::after{
+  content:'';position:absolute;inset:-6px;border-radius:50%;
+  border:2px solid var(--whatsapp);opacity:.5;animation:pulse 2s infinite;
+}
+@keyframes pulse{0%{transform:scale(.9);opacity:.6}70%{transform:scale(1.25);opacity:0}100%{opacity:0}}
+
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .6s,transform .6s}
+.rv.on{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap">
+    <span>📍 Alejandro Maino 2647, San Pedro, Buenos Aires</span>
+    <span class="hide-m">🚚 Envíos a todo el país</span>
+    <span>📞 <a href="tel:+543329640129">(3329) 640129</a> · <a href="tel:+543329518209">518209</a></span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Radiadores San Pedro">
+      <svg viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M26 56 A26 26 0 0 1 26 8" stroke="#E01F26" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <text x="34" y="45" font-family="'Big Shoulders Display',Arial" font-weight="900" font-size="34" fill="#FFFFFF" letter-spacing="1">RSP</text>
+      </svg>
+      <span class="logo-txt">
+        <b>Radiadores San Pedro</b>
+        <small>Radiadores · Baterías · Repuestos</small>
+      </span>
+    </a>
+    <button class="burger" aria-label="Menú" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="catalogo.html">Tienda</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#pagos">Pagos</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a class="nav-cta" href="https://wa.me/5493329684352?text=Hola!%20Quiero%20hacer%20una%20consulta" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.3 1.5Z"/></svg>
+        WhatsApp
+      </a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Empresa familiar · San Pedro, Buenos Aires</span>
+    <h1>Radiadores<br><em>Baterías</em> y<br><span class="rojo">Repuestos</span></h1>
+    <p class="lead">
+      Más de 45 años reparando, fabricando y vendiendo radiadores de línea liviana, pesada,
+      vial y agrícola. Baterías de todas las medidas, turbos y repuestos originales.
+      Trabajamos con las primeras marcas y enviamos a todo el país.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn btn-wa" href="https://wa.me/5493329684352?text=Hola!%20Necesito%20un%20presupuesto" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.3 1.5Z"/></svg>
+        Pedir presupuesto
+      </a>
+      <a class="btn btn-ghost" href="catalogo.html">Ver tienda online</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>+45<i>.</i></b><small>Años de trayectoria</small></div>
+      <div class="stat"><b>4.9<i>★</i></b><small>Opiniones en Google</small></div>
+      <div class="stat"><b>100<i>%</i></b><small>Envíos a todo el país</small></div>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE MARCAS -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Mercedes Benz</span><span>Scania</span><span>Iveco</span><span>Volvo</span><span>Ford</span><span>VW</span><span>Toyota</span><span>Fiat</span><span>Peugeot</span><span>Citroën</span><span>Chevrolet</span><span>Renault</span><span>Agrale</span><span>John Deere</span><span>Case</span><span>Valtra</span>
+    <span>Mercedes Benz</span><span>Scania</span><span>Iveco</span><span>Volvo</span><span>Ford</span><span>VW</span><span>Toyota</span><span>Fiat</span><span>Peugeot</span><span>Citroën</span><span>Chevrolet</span><span>Renault</span><span>Agrale</span><span>John Deere</span><span>Case</span><span>Valtra</span>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">Qué hacemos</span>
+      <h2>Servicios de <i>taller</i> y venta</h2>
+      <p>Del auto de calle al camión, el colectivo y la cosechadora. Si enfría, arranca o empuja, lo trabajamos.</p>
+    </div>
+    <div class="serv-grid">
+      <article class="serv rv" data-n="01">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7Z"/></svg>
+        <h3>Reparación de radiadores</h3>
+        <p>Reparación, limpieza y cambio de panel según muestra. Radiadores en aluminio, cobre y bronce. También válvulas de freno y block de aluminio.</p>
+        <a href="https://wa.me/5493329684352?text=Hola!%20Necesito%20reparar%20un%20radiador" target="_blank" rel="noopener">Consultar reparación</a>
+      </article>
+      <article class="serv rv" data-n="02">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M7 4v16M11 4v16M15 4v16M19 4v16"/></svg>
+        <h3>Fabricación a medida</h3>
+        <p>Fabricamos radiadores y tanques de combustible a medida según muestra. Reformas especiales y radiadores de competición.</p>
+        <a href="https://wa.me/5493329684352?text=Hola!%20Quiero%20fabricar%20un%20radiador%20o%20tanque%20a%20medida" target="_blank" rel="noopener">Pedir a medida</a>
+      </article>
+      <article class="serv rv" data-n="03">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="2.5"/></svg>
+        <h3>Radiadores nuevos</h3>
+        <p>Línea liviana, pesada, vial y colectivos. Mercedes Benz, Scania, Iveco, Volvo, Ford, VW, Toyota, Fiat y más. Originales de primeras marcas.</p>
+        <a href="#catalogo">Ver catálogo</a>
+      </article>
+      <article class="serv rv" data-n="04">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="16" height="12" rx="1"/><path d="M8 8V6h3v2M13 8V6h3v2M8 12h2M14 12h2"/></svg>
+        <h3>Baterías</h3>
+        <p>Desde 12x45 hasta 12x220 amperes para autos, camiones y maquinaria. Baterías de gel, litio y solares por encargue. Línea completa para motos.</p>
+        <a href="https://wa.me/5493329684352?text=Hola!%20Quiero%20consultar%20por%20bater%C3%ADas" target="_blank" rel="noopener">Consultar baterías</a>
+      </article>
+      <article class="serv rv" data-n="05">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 14a8 8 0 0 1 16 0"/><path d="M12 14 15 9"/><path d="M2 18h20M5 18v2M19 18v2"/></svg>
+        <h3>Turbos</h3>
+        <p>Venta y reparación de turbos de todos los modelos. Diagnóstico y asesoramiento para que tu motor rinda como corresponde.</p>
+        <a href="https://wa.me/5493329684352?text=Hola!%20Quiero%20consultar%20por%20turbos" target="_blank" rel="noopener">Consultar turbos</a>
+      </article>
+      <article class="serv rv" data-n="06">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg>
+        <h3>Repuestos línea pesada</h3>
+        <p>Catálogo 2026 con cientos de repuestos: cardanes, depósitos, retenes, juntas, embragues, compresores, válvulas y sensores para camiones y colectivos.</p>
+        <a href="#catalogo">Buscar repuesto</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section id="catalogo">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">Catálogo 2026</span>
+      <h2>Buscá tu <i>producto</i></h2>
+      <p>Filtrá por categoría o buscá por marca, modelo o código. Tocá <b>Consultar</b> y te respondemos por WhatsApp con precio y disponibilidad.</p>
+    </div>
+    <a class="rv" href="catalogo.html" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;background:var(--navy-deep);color:#fff;text-decoration:none;padding:1.5rem 1.8rem;margin-bottom:2rem;border-left:6px solid var(--red)">
+      <span style="font-family:var(--display);font-weight:800;font-size:clamp(1.3rem,3vw,1.9rem);text-transform:uppercase;letter-spacing:.03em">🛒 Tienda online — casi 1.000 productos con foto</span>
+      <span class="btn btn-red" style="pointer-events:none">Entrar a la tienda</span>
+    </a>
+    <div class="cat-tools rv">
+      <label class="cat-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Buscar: Sprinter, Scania 330, 12x75, retén, embrague…" aria-label="Buscar producto">
+      </label>
+      <div class="chips" id="chips">
+        <button class="chip act" data-c="todos">Todos</button>
+        <button class="chip" data-c="radiadores">Radiadores</button>
+        <button class="chip" data-c="agro">Agro y vial</button>
+        <button class="chip" data-c="baterias">Baterías</button>
+        <button class="chip" data-c="repuestos">Repuestos</button>
+        <button class="chip" data-c="taller">Taller</button>
+      </div>
+    </div>
+    <div class="cat-grid" id="grid"></div>
+    <div class="cat-more rv">
+      <p><b>¿No encontrás lo que buscás?</b> El catálogo completo tiene cientos de artículos más. Descargalo en PDF o escribinos directo — si no lo tenemos, lo conseguimos.</p>
+      <div class="btns">
+        <a class="btn btn-red" href="catalogos/catalogo-radiadores-baterias.pdf" download>⬇ Radiadores y Baterías</a>
+        <a class="btn btn-ghost" href="catalogos/catalogo-repuestos.pdf" download>⬇ Repuestos 2026</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGOS -->
+<section id="pagos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">Comprá fácil</span>
+      <h2>Cómo comprar y <i>pagar</i></h2>
+      <p>Sin vueltas: consultás, te pasamos precio y elegís cómo pagar. Retirás por el taller o te lo enviamos a cualquier punto del país.</p>
+    </div>
+    <div class="pay-grid">
+      <div class="steps rv">
+        <div class="step">
+          <span class="n">01</span>
+          <div>
+            <h3>Consultanos por WhatsApp</h3>
+            <p>Decinos qué necesitás: marca, modelo y año del vehículo, o el código del catálogo. Si es una reparación, mandanos una foto del radiador.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="n">02</span>
+          <div>
+            <h3>Recibí precio y disponibilidad</h3>
+            <p>Te confirmamos stock, precio y tiempo de entrega. Si es un trabajo a medida, te pasamos el presupuesto detallado.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="n">03</span>
+          <div>
+            <h3>Pagá como prefieras</h3>
+            <p>Te mandamos el link de Mercado Pago o los datos para transferir. Apenas acredita, preparamos tu pedido o arrancamos el trabajo.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="n">04</span>
+          <div>
+            <h3>Retirá o recibí tu pedido</h3>
+            <p>Retiro por Alejandro Maino 2647, San Pedro — o envío por transporte a todo el país.</p>
+          </div>
+        </div>
+      </div>
+      <aside class="pay-card rv">
+        <h3>Medios de pago</h3>
+        <div class="pay-method">
+          <span class="pm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#00AEEF" stroke-width="1.8"><ellipse cx="12" cy="12" rx="10" ry="7"/><path d="M6 12c2-2 4-3 6-3s4 1 6 3"/></svg></span>
+          <div><b>Mercado Pago</b><small>Link de pago con tarjeta de crédito, débito o dinero en cuenta. Cuotas disponibles.</small></div>
+        </div>
+        <div class="pay-method">
+          <span class="pm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8FA3BC" stroke-width="1.8"><path d="M3 10h18M3 10l9-6 9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 18h18v2H3z"/></svg></span>
+          <div><b>Transferencia bancaria</b><small>Te pasamos el CBU/alias por WhatsApp junto con el presupuesto.</small></div>
+        </div>
+        <div class="pay-method">
+          <span class="pm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#7BC67E" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M5 9h.01M19 15h.01"/></svg></span>
+          <div><b>Efectivo y tarjetas en el local</b><small>Alejandro Maino 2647, San Pedro, Buenos Aires.</small></div>
+        </div>
+        <a class="btn btn-wa" href="https://wa.me/5493329684352?text=Hola!%20Quiero%20comprar%20y%20coordinar%20el%20pago" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.3 1.5Z"/></svg>
+          Iniciar compra
+        </a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="wrap">
+    <div class="nos-grid">
+      <div class="nos-txt rv">
+        <span class="kicker">Desde hace más de 45 años</span>
+        <div class="big-year">+45</div>
+        <h2 style="font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;margin-bottom:1.4rem">Una empresa <i style="font-style:normal;color:var(--red)">familiar</i> de San Pedro</h2>
+        <p><b>Radiadores San Pedro</b> nació como un taller familiar y hoy, con más de 45 años de trayectoria, es referente en la fabricación, reparación y venta de radiadores para toda la región — y para todo el país gracias a nuestros envíos.</p>
+        <p>Trabajamos desde la línea liviana hasta radiadores viales, agrícolas y de competición. Sumamos baterías de todas las medidas, turbos y un catálogo de repuestos de línea pesada que crece año a año.</p>
+        <p>Lo que no cambió en cuatro décadas: <b>atención directa, trabajo bien hecho y precios justos.</b></p>
+      </div>
+      <div class="reviews rv">
+        <div class="rev-head">
+          <b>4.9</b>
+          <div>
+            <div class="stars">★★★★★</div>
+            <small>21 opiniones en Google</small>
+          </div>
+        </div>
+        <blockquote class="rev">"Muy buena atención. Buenos precios, excelencia en reparación."<small>— Opinión de Google</small></blockquote>
+        <blockquote class="rev">"Excelente atención y muy buen trabajo realizado!"<small>— Opinión de Google</small></blockquote>
+        <blockquote class="rev">"Altamente recomendable."<small>— Opinión de Google</small></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">Encontranos</span>
+      <h2>Contacto y <i>ubicación</i></h2>
+    </div>
+    <div class="con-grid">
+      <div class="con-list rv">
+        <div class="con-item">
+          <span class="pm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <div>
+            <b>Dirección</b>
+            <p>Alejandro Maino 2647<br>San Pedro (B2930), Buenos Aires</p>
+          </div>
+        </div>
+        <div class="con-item">
+          <span class="pm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>
+          <div>
+            <b>Teléfonos</b>
+            <p><a href="tel:+543329640129">(3329) 640129</a> · <a href="tel:+543329518209">(3329) 518209</a><br>WhatsApp: <a href="https://wa.me/5493329684352" target="_blank" rel="noopener">3329 68-4352</a></p>
+          </div>
+        </div>
+        <div class="con-item">
+          <span class="pm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+          <div>
+            <b>Horario</b>
+            <p>Lunes a viernes por la mañana y tarde.<br>Consultá disponibilidad por WhatsApp.</p>
+          </div>
+        </div>
+        <div class="con-item">
+          <span class="pm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5zM7.5 17a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm11 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"/></svg></span>
+          <div>
+            <b>Envíos</b>
+            <p>A todo el país por transporte y correo.</p>
+          </div>
+        </div>
+        <div class="socials">
+          <a class="soc" href="https://www.instagram.com/radiadoressanpedro" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            Instagram
+          </a>
+          <a class="soc" href="https://www.facebook.com/search/top?q=radiadores%20y%20baterias%20san%20pedro" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.3-1.5 1.6-1.5h1.6V4.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.3H7.6V14h2.7v8h3.2Z"/></svg>
+            Facebook
+          </a>
+          <a class="soc" href="#" id="ml-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="12" rx="10" ry="7"/><path d="M5.5 13c2-2.2 4-3.2 6.5-3.2s4.5 1 6.5 3.2"/></svg>
+            Mercado Libre
+          </a>
+        </div>
+      </div>
+      <div class="map-box rv">
+        <iframe
+          src="https://www.google.com/maps?q=Radiadores+San+Pedro,+Alejandro+Maino+2647,+B2930+San+Pedro,+Provincia+de+Buenos+Aires&z=15&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa — Radiadores San Pedro"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p><b>Radiadores San Pedro</b> · Empresa familiar desde hace más de 45 años<br>Alejandro Maino 2647, San Pedro, Buenos Aires · Envíos a todo el país</p>
+    <div class="foot-nav">
+      <a href="#servicios">Servicios</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#pagos">Pagos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <p>© <span id="yr"></span> Radiadores San Pedro — RSP</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/5493329684352?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.3 1.5Z"/></svg>
+</a>
+
+<script>
+/* ══════════ CATÁLOGO ══════════ */
+const WA = '5493329684352';
+const CATALOGO = [
+  /* ── RADIADORES ── */
+  {c:'radiadores',m:'Mercedes Benz',n:'Radiador 1418/1722 con intercooler'},
+  {c:'radiadores',m:'Mercedes Benz',n:'Radiador 1618 / O-500 con intercooler'},
+  {c:'radiadores',m:'Mercedes Benz',n:'Radiador Atego 1725/1728/2428/2425'},
+  {c:'radiadores',m:'Mercedes Benz',n:'Radiador Atego 1823'},
+  {c:'radiadores',m:'Mercedes Benz',n:'Radiador Atego 1634/1938 electrónica'},
+  {c:'radiadores',m:'Mercedes Benz',n:'Radiador Axor 2035/2540/2640 (2000 en adelante)'},
+  {c:'radiadores',m:'Mercedes Benz',n:'Radiador Sprinter electrónica 310/311/312/313/413 (2000+)'},
+  {c:'radiadores',m:'Mercedes Benz',n:'Radiador Sprinter 415/515 2.1 (2012 en adelante)'},
+  {c:'radiadores',m:'Mercedes Benz',n:'Radiador 1620/1624'},
+  {c:'radiadores',m:'Mercedes Benz',n:'Radiador O-500 RSD CB / OM-926 LA 305'},
+  {c:'radiadores',m:'Mercedes Benz',n:'Radiador según muestra en aluminio — todos los modelos'},
+  {c:'radiadores',m:'Ford',n:'Radiador Cargo 1722/2422/2628E'},
+  {c:'radiadores',m:'Ford',n:'Radiador Ranger completo nuevo en aluminio y plástico'},
+  {c:'radiadores',m:'Ford',n:'Radiador Ranger 3.0 Power Stroke'},
+  {c:'radiadores',m:'Ford',n:'Radiador Ranger 2.8 intercooler 00/05'},
+  {c:'radiadores',m:'Ford',n:'Radiador Ka 99/2008 · Ka 1.0-1.6 08/12 · Ka 1.3 97/99'},
+  {c:'radiadores',m:'Ford',n:'Radiador Ka Kinetic 1.5/1.6'},
+  {c:'radiadores',m:'Ford',n:'Radiador Fiesta'},
+  {c:'radiadores',m:'Ford',n:'Radiador Focus 2.0 07/08'},
+  {c:'radiadores',m:'Ford',n:'Radiador según muestra en aluminio — todos los modelos'},
+  {c:'radiadores',m:'Iveco',n:'Radiador Tector Attack 1720 E22 (2006+) aluminio y plástico'},
+  {c:'radiadores',m:'Iveco',n:'Radiador Tector Attack 1720 E22 (2010+) aluminio y plástico'},
+  {c:'radiadores',m:'Iveco',n:'Radiador Tector 17220/17250/17280'},
+  {c:'radiadores',m:'Iveco',n:'Radiador Daily MN 2012–2018'},
+  {c:'radiadores',m:'Iveco',n:'Radiador Stralis Hi-Way'},
+  {c:'radiadores',m:'Iveco',n:'Radiador Stralis 190 S27/S31 · 260 S31 (2002+)'},
+  {c:'radiadores',m:'Iveco',n:'Creación de reforma en aluminio y plástico'},
+  {c:'radiadores',m:'Scania',n:'Radiador Scania 330 en aluminio y plástico'},
+  {c:'radiadores',m:'Scania',n:'Radiador Fan Drive completo en aluminio'},
+  {c:'radiadores',m:'Scania',n:'Radiador K94 L colectivo 4K124'},
+  {c:'radiadores',m:'Scania',n:'Radiador Serie 5 K240/270/310/320/340/360/380/400 P5 (2008+)'},
+  {c:'radiadores',m:'Scania',n:'Radiador P124'},
+  {c:'radiadores',m:'Scania',n:'Radiador 112/113 (cobre y bronce según reparación)'},
+  {c:'radiadores',m:'Agrale',n:'Radiador MT17 aluminio y plástico completo nuevo'},
+  {c:'radiadores',m:'Agrale',n:'Radiador MT15 / MA15 (cobre y bronce según reparación)'},
+  {c:'radiadores',m:'Peugeot',n:'Radiador Partner'},
+  {c:'radiadores',m:'Peugeot',n:'Radiador 206/207/208'},
+  {c:'radiadores',m:'Peugeot',n:'Radiador 2008/3008'},
+  {c:'radiadores',m:'VW',n:'Radiador Amarok'},
+  {c:'radiadores',m:'VW',n:'Radiador Suran · Gol Trend · Voyage'},
+  {c:'radiadores',m:'VW',n:'Radiador Gol AB9 · Gol Power 2013'},
+  {c:'radiadores',m:'VW',n:'Radiador línea pesada según muestra — todos los modelos'},
+  {c:'radiadores',m:'Toyota',n:'Radiador Hilux'},
+  {c:'radiadores',m:'Toyota',n:'Radiador Corolla · Yaris · Etios'},
+  {c:'radiadores',m:'Renault',n:'Radiador 300 · 380 · 440'},
+  {c:'radiadores',m:'Chevrolet',n:'Radiador Corsa Classic · Classic · Celta'},
+  {c:'radiadores',m:'Chevrolet',n:'Radiador Spin · Meriva · Cruze · Onix · Cobalt · Spirit'},
+  {c:'radiadores',m:'Chevrolet',n:'Radiador S10'},
+  {c:'radiadores',m:'Fiat',n:'Radiador Uno 1.4/1.6 · Uno Novo'},
+  {c:'radiadores',m:'Fiat',n:'Radiador Palio/Siena/Fire 1.3/1.4/1.6/1.8 · Palio Fase 2'},
+  {c:'radiadores',m:'Fiat',n:'Radiador Fiorino · Linea · Punto'},
+  {c:'radiadores',m:'Fiat',n:'Radiador Cavallino/Cursor 330/450 aluminio y plástico'},
+  {c:'radiadores',m:'Citroën',n:'Radiador C1 · C3 · C4 · Picasso'},
+  {c:'radiadores',m:'Citroën',n:'Radiador Xsara · Berlingo · Jumpy/Jumper'},
+  {c:'radiadores',m:'Volvo',n:'Radiador B450R Euro 5'},
+  {c:'radiadores',m:'Volvo',n:'Radiador VM210 / Renault Midlum'},
+  {c:'radiadores',m:'Volvo',n:'Radiador FH12 NH12 Globetrotter 420/460/470/500 (99/04)'},
+  {c:'radiadores',m:'Volvo',n:'Radiador FH 420/520 línea nueva'},
+  {c:'radiadores',m:'Volvo',n:'Radiador FM Euro 5 330/370/380/420'},
+  {c:'radiadores',m:'Volvo',n:'Radiador FM 10/12 320/340/360/380 (1993+)'},
+  /* ── AGRO Y VIAL ── */
+  {c:'agro',m:'Case',n:'Radiador Puma 165/170/180/184/210 · New Holland T7'},
+  {c:'agro',m:'Case',n:'Radiador de aceite 120x37x12'},
+  {c:'agro',m:'Case',n:'Radiador de agua 120x1,8x14,5'},
+  {c:'agro',m:'John Deere',n:'Radiador intercooler 120x37x12'},
+  {c:'agro',m:'John Deere',n:'Radiador 5403/5605/5705 D Braz 45,5x53x8,5'},
+  {c:'agro',m:'Valtra',n:'Radiador BH 180/205/210'},
+  {c:'agro',m:'Caterpillar',n:'Radiador 416E/420E'},
+  {c:'agro',m:'Cosechadoras',n:'Radiador según muestra en aluminio — todos los modelos'},
+  /* ── TALLER ── */
+  {c:'taller',m:'Fabricación',n:'Tanques de combustible a medida según muestra'},
+  {c:'taller',m:'Fabricación',n:'Tanques de radiador a medida según muestra'},
+  {c:'taller',m:'Reparación',n:'Reparación de radiador según muestra'},
+  {c:'taller',m:'Reparación',n:'Cambio de panel de radiador'},
+  {c:'taller',m:'Reparación',n:'Limpieza y mantenimiento de radiadores'},
+  {c:'taller',m:'Reparación',n:'Reparación de válvulas de freno'},
+  {c:'taller',m:'Aluminio',n:'Reparación de block de aluminio'},
+  {c:'taller',m:'Competición',n:'Radiadores de competición en aluminio'},
+  /* ── BATERÍAS ── */
+  {c:'baterias',m:'Auto / Camioneta',n:'Batería 12x45 amperes'},
+  {c:'baterias',m:'Auto / Camioneta',n:'Batería 12x65 amperes'},
+  {c:'baterias',m:'Auto / Camioneta',n:'Batería 12x75 amperes'},
+  {c:'baterias',m:'Auto / Camioneta',n:'Batería 12x80 amperes'},
+  {c:'baterias',m:'Auto / Camioneta',n:'Batería 12x90 amperes'},
+  {c:'baterias',m:'Camión / Maquinaria',n:'Batería 12x110 amperes'},
+  {c:'baterias',m:'Camión / Maquinaria',n:'Batería 12x180 amperes'},
+  {c:'baterias',m:'Camión / Maquinaria',n:'Batería 12x220 amperes'},
+  {c:'baterias',m:'Gel / Litio',n:'Baterías 12x110 · 12x180 · 12x220 gel/litio por encargue'},
+  {c:'baterias',m:'Solares',n:'Baterías solares 12x110 · 12x180 · 12x220 por encargue'},
+  {c:'baterias',m:'Motos',n:'Batería KGG5AL · KGGZ5S · KGGZ7S · KGG7L · KGG7A · G9A'},
+  {c:'baterias',m:'Motos',n:'Batería SW12V7A-3A · SW12V7-3B · SW12V9-2B · KGG6Z5L · KGG7D'},
+  /* ── REPUESTOS ── */
+  {c:'repuestos',m:'Cardanes',n:'Kit macho y hembra de cardán OF1722/1618 (cruceta SPL-140) — HPL601'},
+  {c:'repuestos',m:'Cardanes',n:'Kit macho y hembra O-500/1632/1938/Axor (cruceta SPL-250) — HPL602'},
+  {c:'repuestos',m:'Cardanes',n:'Cardán de dirección OHL1315L/OF1722 460mm — RCD116'},
+  {c:'repuestos',m:'Cardanes',n:'Cardán de dirección O-500 940mm — RCD124'},
+  {c:'repuestos',m:'Cardanes',n:'Cardán de dirección Axor 2035/2040/2044 — RCD170'},
+  {c:'repuestos',m:'Cardanes',n:'Cardán de dirección Atego 1418–1726 510mm — RCD193'},
+  {c:'repuestos',m:'Cardanes',n:'Cruceta de cardán 232 CZ O-500/Actros'},
+  {c:'repuestos',m:'Cardanes',n:'Cruceta de cardán 271 CZ 1417 (SPL-90)'},
+  {c:'repuestos',m:'Depósitos',n:'Depósito de agua OH1315L/O-500 con tapa'},
+  {c:'repuestos',m:'Depósitos',n:'Depósito de agua 1417/1620 · 1418/1634 · 1721/1722/1726'},
+  {c:'repuestos',m:'Depósitos',n:'Depósito de agua Atego 1725 con tapa'},
+  {c:'repuestos',m:'Depósitos',n:'Depósito de agua Sprinter 313 OM651'},
+  {c:'repuestos',m:'Depósitos',n:'Depósito de agua Axor 1933/2035'},
+  {c:'repuestos',m:'Depósitos',n:'Depósito líquido de dirección hidráulica OF1418/Agrale MT-12'},
+  {c:'repuestos',m:'Depósitos',n:'Depósito líquido de freno OH1518 con/sin soporte'},
+  {c:'repuestos',m:'Motor',n:'Árbol de leva 904/924 con engranaje'},
+  {c:'repuestos',m:'Motor',n:'Árbol de leva 924 Euro 5 OF1519 · 926 Euro 5'},
+  {c:'repuestos',m:'Motor',n:'Cigüeñal Agrale motor Actron 412 4 cilindros'},
+  {c:'repuestos',m:'Motor',n:'Cigüeñal 904LA · 906 · 924LA · 926LA plato 103mm'},
+  {c:'repuestos',m:'Motor',n:'Varilla nivel de aceite 1417 · 906'},
+  {c:'repuestos',m:'Retenes',n:'Retén de rueda delantero 1620/1721 O-400 blindado 100x125x13'},
+  {c:'repuestos',m:'Retenes',n:'Retén de rueda trasero 1618/1722 125x150x15 (común y vitón)'},
+  {c:'repuestos',m:'Retenes',n:'Retén de rueda O-500 100x130x13 · OF1417 100x120x12,7'},
+  {c:'repuestos',m:'Retenes',n:'Retén piñón diferencial 1517/1518/1620 68x85x10'},
+  {c:'repuestos',m:'Retenes',n:'Retén de caja G-210/GO-210 · salida de caja G-60/G-66/G-85'},
+  {c:'repuestos',m:'Retenes',n:'Retén de bancada 904/906/924/926 110x140x12'},
+  {c:'repuestos',m:'Retenes',n:'Retenes Agrale MA-15/MT-15 (distribución, piñón, ruedas)'},
+  {c:'repuestos',m:'Juntas',n:'Juego de juntas motor completo OM-904 · OM-906 · OM-924 · OM-926'},
+  {c:'repuestos',m:'Juntas',n:'Junta tapa de cilindro 904LA/906LA/924/926 (chapa y amianto)'},
+  {c:'repuestos',m:'Juntas',n:'Junta tapa de cilindro OM-457LA Euro 5'},
+  {c:'repuestos',m:'Juntas',n:'Junta de cárter 904 · 906/926/1723'},
+  {c:'repuestos',m:'Mangueras',n:'Manguera de intercooler 1417/1621/1721 · 1518/1618'},
+  {c:'repuestos',m:'Mangueras',n:'Manguera radiador a bomba de agua 1417/1418/1722'},
+  {c:'repuestos',m:'Mangueras',n:'Manguera radiador a depósito 1418 · 1721 · 1115/1417'},
+  {c:'repuestos',m:'Mangueras',n:'Caño poliamida 5/16 · 3/8 · 10x08 · 11x08 · 14x11 (rollo)'},
+  {c:'repuestos',m:'Embrague',n:'Disco de embrague OF1722 · 904LA · 1938S/Axor Ø430'},
+  {c:'repuestos',m:'Embrague',n:'Disco de embrague Iveco Vertis/Tector Ø330/Ø362'},
+  {c:'repuestos',m:'Embrague',n:'Kit placa y disco 904 · OF-1722 395mm'},
+  {c:'repuestos',m:'Embrague',n:'Kit embrague con crapodina O-500 RSD · 1632/1634/1938'},
+  {c:'repuestos',m:'Embrague',n:'Kit embrague con crapodina VW Constellation · Iveco · Agrale'},
+  {c:'repuestos',m:'Embrague',n:'Bomba de embrague 1417 · Axor/Actros · Atego 1725'},
+  {c:'repuestos',m:'Embrague',n:'Bomba de embrague superior Sprinter 310/312 · 415/515'},
+  {c:'repuestos',m:'Compresores',n:'Compresores de aire Mercedes Benz · Agrale · Cummins · bicilíndricos'},
+  {c:'repuestos',m:'Compresores',n:'Cigüeñal de compresor 85mm 1417 · OM-457/O-500'},
+  {c:'repuestos',m:'Compresores',n:'Tapa y entretapa de compresor OH1518/OH1618 · Axor · O-500'},
+  {c:'repuestos',m:'Compresores',n:'Juego de juntas de compresor con flapers (mono y bicilíndrico)'},
+  {c:'repuestos',m:'Compresores',n:'Pistón de compresor con aros STD 85mm'},
+  {c:'repuestos',m:'Válvulas',n:'Válvula APU Mercedes Benz · Agrale (y filtro secador APU)'},
+  {c:'repuestos',m:'Válvulas',n:'Válvula 6 vías · 4 vías · relay chata · pedalera de freno'},
+  {c:'repuestos',m:'Válvulas',n:'Válvula de suspensión · electroválvulas · registros de freno'},
+  {c:'repuestos',m:'Válvulas',n:'Válvula de freno de mano puño rojo · servos de embrague'},
+  {c:'repuestos',m:'Sensores',n:'Sensor de nivel de agua 1418 · Agrale MA-15'},
+  {c:'repuestos',m:'Sensores',n:'Sensor de temperatura · sobrealimentación de turbo OM-926'},
+  {c:'repuestos',m:'Sensores',n:'Sensor ABS delantero 1519 · giro de eje trasero'},
+  {c:'repuestos',m:'Frenos',n:'Leva de freno volteo 1417/1418/1722 (del. y tras., Z y S)'},
+  {c:'repuestos',m:'Frenos',n:'Plato de freno delantero volteo · patines y resortes'},
+  {c:'repuestos',m:'Refrigeración',n:'Refrigeración de aceite OM-904 · OM-906 · OM-615 Sprinter'},
+  {c:'repuestos',m:'Refrigeración',n:'Termostato completo Sprinter OM651'},
+  {c:'repuestos',m:'Escape',n:'Caño de bajada de escape 1519 · caño rígido con flexible O-500'},
+  {c:'repuestos',m:'Caja / Dirección',n:'Volante de dirección Atego/Axor · OH1115L/1417/1621'},
+  {c:'repuestos',m:'Caja / Dirección',n:'Cabezas y rótulas de palanca de cambio G-60/G-66'},
+  {c:'repuestos',m:'Caja / Dirección',n:'Cable selectora de caja O-500 11750mm'},
+  {c:'repuestos',m:'Filtros',n:'Carcaza y tapas de filtro de aire OH1519/1618/1621/O-500'},
+  {c:'repuestos',m:'Filtros',n:'Filtro de aceite completo 1418/1722'},
+];
+
+const grid = document.getElementById('grid');
+const q = document.getElementById('q');
+const chips = document.querySelectorAll('.chip');
+const CAT_LABEL = {radiadores:'Radiador',agro:'Agro / Vial',baterias:'Batería',repuestos:'Repuesto',taller:'Taller'};
+let cat = 'todos';
+
+function waLink(item){
+  const msg = `Hola! Quiero consultar precio y disponibilidad de: ${item.m} — ${item.n}`;
+  return `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+}
+function render(){
+  const term = q.value.trim().toLowerCase();
+  const list = CATALOGO.filter(it =>
+    (cat==='todos'||it.c===cat) &&
+    (!term || (it.m+' '+it.n).toLowerCase().includes(term))
+  );
+  if(!list.length){
+    grid.innerHTML = `<div class="cat-empty"><b>No encontramos "${q.value}"</b>
+      Igual seguro lo conseguimos — <a href="https://wa.me/${WA}?text=${encodeURIComponent('Hola! Estoy buscando: '+q.value)}" target="_blank" rel="noopener" style="color:var(--red);font-weight:700">preguntanos por WhatsApp →</a></div>`;
+    return;
+  }
+  grid.innerHTML = list.map(it=>`
+    <article class="item">
+      <div class="tag"><span>${it.m}</span><em>${CAT_LABEL[it.c]||''}</em></div>
+      <h4>${it.n}</h4>
+      <a href="${waLink(it)}" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>
+        Consultar precio
+      </a>
+    </article>`).join('');
+}
+chips.forEach(ch=>ch.addEventListener('click',()=>{
+  chips.forEach(x=>x.classList.remove('act'));
+  ch.classList.add('act');
+  cat = ch.dataset.c;
+  render();
+}));
+q.addEventListener('input',render);
+render();
+
+/* ══════════ Scroll reveal ══════════ */
+const io = new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}
+}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* Cerrar menú móvil al navegar */
+document.querySelectorAll('.nav-links a').forEach(a=>
+  a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('open')));
+</script>
+</body>
+</html>
