@@ -309,9 +309,8 @@ section{padding:5.5rem 0;position:relative}
 /* ── Contacto / mapa ── */
 #contacto{background:var(--paper);color:var(--navy-deep);padding-bottom:0}
 #contacto .sec-head p{color:#4b5a6e}
-.con-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;margin-bottom:4rem}
-@media(max-width:920px){.con-grid{grid-template-columns:1fr}}
-.con-list{display:flex;flex-direction:column;gap:1.3rem}
+.con-grid{margin-bottom:4rem}
+.con-list{display:flex;flex-direction:column;gap:1.3rem;max-width:44rem}
 .con-item{display:flex;gap:1rem;align-items:flex-start}
 .con-item .pm-ico{
   width:46px;height:46px;flex-shrink:0;display:grid;place-items:center;
@@ -329,8 +328,6 @@ section{padding:5.5rem 0;position:relative}
 }
 .soc:hover{background:var(--navy-deep);color:#fff}
 .soc svg{width:17px;height:17px}
-.map-box{border:4px solid var(--navy-deep);box-shadow:10px 10px 0 var(--red);line-height:0}
-.map-box iframe{width:100%;height:420px;border:0;filter:grayscale(.2) contrast(1.05)}
 
 /* ── Footer ── */
 footer{background:var(--navy-deep);border-top:4px solid var(--red);padding:2.6rem 0}
@@ -778,12 +775,6 @@ footer p b{color:#fff}
             Mercado Libre
           </a>
         </div>
-      </div>
-      <div class="map-box rv">
-        <iframe
-          src="https://www.google.com/maps?q=Radiadores+San+Pedro,+Alejandro+Maino+2647,+B2930+San+Pedro,+Provincia+de+Buenos+Aires&z=15&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="Mapa — Radiadores San Pedro"></iframe>
       </div>
     </div>
   </div>
