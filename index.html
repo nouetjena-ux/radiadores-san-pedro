@@ -67,6 +67,10 @@ nav{
   background:rgba(8,27,51,.92);backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(143,163,188,.18);
 }
+@media(max-width:640px){
+  /* backdrop-filter + sticky nav corrompe el pintado del topbar cuando este envuelve a 2 líneas en pantallas chicas */
+  nav{background:var(--navy-deep);backdrop-filter:none}
+}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
 .logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
 .logo-img{height:52px;width:auto;display:block}
@@ -121,6 +125,10 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
   background:linear-gradient(100deg,var(--navy-deep) 0%,rgba(8,27,51,.85) 30%,rgba(8,27,51,.5) 58%,rgba(8,27,51,.2) 100%);
 }
 @media(prefers-reduced-motion:reduce){.hero-video{display:none}}
+@media(max-width:820px){
+  .hero-video{filter:brightness(.55) saturate(.9)}
+  .hero-video-overlay{background:linear-gradient(180deg,rgba(8,27,51,.92) 0%,rgba(8,27,51,.8) 45%,rgba(8,27,51,.94) 100%)}
+}
 .hero .wrap{position:relative;z-index:2}
 .kicker{
   display:inline-flex;align-items:center;gap:.6rem;font-size:.75rem;font-weight:700;
