@@ -75,12 +75,21 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 }
 .cat-chip.act,.cat-chip:hover{background:var(--navy);color:#fff}
 .cat-chip.act{box-shadow:3px 3px 0 var(--red)}
-.sub-select{
-  border:2px solid var(--navy);background:#fff;color:var(--navy-deep);padding:.55rem .7rem;
-  font-family:var(--body);font-weight:600;font-size:.85rem;cursor:pointer;max-width:230px;
-}
 .count-line{font-size:.8rem;color:var(--steel-dim);font-weight:600;letter-spacing:.05em;width:100%}
 .count-line b{color:var(--red)}
+
+/* ── Filtro de marca (solo Radiadores) ── */
+.brand-filter{background:#fff;border-bottom:2px solid var(--navy)}
+.brand-filter .wrap{padding:1rem 0}
+.brand-label{
+  display:block;font-family:var(--display);font-size:.78rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--steel-dim);font-weight:700;
+  padding-bottom:.7rem;margin-bottom:.8rem;border-bottom:1px solid var(--paper-dim);
+}
+.brand-list{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
+.brand-item{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--navy-deep);cursor:pointer;user-select:none}
+.brand-item input{width:15px;height:15px;accent-color:var(--red);cursor:pointer;flex-shrink:0}
+.brand-item:hover{color:var(--red)}
 
 /* ── Grid ── */
 main{padding:2rem 0 4rem}
@@ -246,13 +255,20 @@ footer a{color:#fff;text-decoration:none}
     <div class="cats" id="cats">
       <button class="cat-chip act" data-c="todos">Todos</button>
       <button class="cat-chip" data-c="radiadores">Radiadores</button>
-      <button class="cat-chip" data-c="agro">Agro y vial</button>
+      <button class="cat-chip" data-c="turbos">Turbos</button>
       <button class="cat-chip" data-c="baterias">Baterías</button>
+      <button class="cat-chip" data-c="inyeccion">Inyección</button>
       <button class="cat-chip" data-c="repuestos">Repuestos</button>
-      <button class="cat-chip" data-c="taller">Taller</button>
+      <button class="cat-chip" data-c="especiales">Especiales</button>
     </div>
-    <select class="sub-select" id="subSel" hidden></select>
     <div class="count-line" id="countLine"></div>
+  </div>
+</div>
+
+<div class="brand-filter" id="brandFilter" hidden>
+  <div class="wrap">
+    <span class="brand-label">Montadora</span>
+    <div class="brand-list" id="brandList"></div>
   </div>
 </div>
 
@@ -296,14 +312,15 @@ footer a{color:#fff;text-decoration:none}
 <script>
 /* ═══════════ TIENDA RSP ═══════════ */
 const WA = (typeof CONFIG !== 'undefined' && CONFIG.whatsapp) || '5493329684352';
-const CAT_NAMES = {radiadores:'Radiadores',agro:'Agro y vial',baterias:'Baterías',repuestos:'Repuestos',taller:'Taller'};
+const CAT_NAMES = {radiadores:'Radiadores',turbos:'Turbos',baterias:'Baterías',inyeccion:'Inyección',repuestos:'Repuestos',especiales:'Especiales'};
 const fmt = n => '$' + n.toLocaleString('es-AR');
 const titulo = s => s.length > 110 ? s.slice(0,107) + '…' : s;
 
-let cat = 'todos', sub = '', term = '', shown = 48;
+let cat = 'todos', brands = [], term = '', shown = 48;
 const grid = document.getElementById('grid');
 const q = document.getElementById('q');
-const subSel = document.getElementById('subSel');
+const brandFilter = document.getElementById('brandFilter');
+const brandList = document.getElementById('brandList');
 const countLine = document.getElementById('countLine');
 const moreBox = document.getElementById('moreBox');
 
@@ -313,17 +330,24 @@ function filtered(){
   const t = term.toLowerCase();
   return PRODUCTS.filter(p =>
     (cat === 'todos' || p.cat === cat) &&
-    (!sub || p.sub === sub) &&
+    (!brands.length || brands.includes(p.sub)) &&
     (!t || (p.name + ' ' + (p.code||'') + ' ' + (p.sub||'')).toLowerCase().includes(t))
   );
 }
 
-function subOptions(){
-  if (cat === 'todos' || cat === 'taller') { subSel.hidden = true; sub=''; return; }
-  const subs = [...new Set(PRODUCTS.filter(p=>p.cat===cat).map(p=>p.sub).filter(Boolean))].sort();
-  subSel.innerHTML = `<option value="">${cat==='radiadores'||cat==='agro'?'Todas las marcas':'Todas las categorías'}</option>` +
-    subs.map(s=>`<option${s===sub?' selected':''}>${s}</option>`).join('');
-  subSel.hidden = false;
+function brandOptions(){
+  if (cat !== 'radiadores') { brandFilter.hidden = true; brands = []; return; }
+  const marcas = [...new Set(PRODUCTS.filter(p=>p.cat==='radiadores').map(p=>p.sub).filter(Boolean))].sort();
+  brandList.innerHTML = marcas.map(m => `
+    <label class="brand-item">
+      <input type="checkbox" value="${m}"${brands.includes(m)?' checked':''}>
+      ${m}
+    </label>`).join('');
+  brandList.querySelectorAll('input').forEach(inp => inp.addEventListener('change', () => {
+    brands = [...brandList.querySelectorAll('input:checked')].map(i=>i.value);
+    render(true);
+  }));
+  brandFilter.hidden = false;
 }
 
 function waConsulta(p){
@@ -366,10 +390,13 @@ function noImgHtml(){
 function render(reset){
   if (reset) shown = 48;
   const list = filtered();
-  countLine.innerHTML = `<b>${list.length}</b> producto${list.length===1?'':'s'} ${cat!=='todos' ? 'en '+CAT_NAMES[cat] : ''} ${sub? '· '+sub : ''} ${term ? '· "'+term+'"' : ''}`;
+  countLine.innerHTML = `<b>${list.length}</b> producto${list.length===1?'':'s'} ${cat!=='todos' ? 'en '+CAT_NAMES[cat] : ''} ${brands.length? '· '+brands.join(', ') : ''} ${term ? '· "'+term+'"' : ''}`;
   if (!list.length){
-    grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><b>No encontramos "${term}"</b>
-      Seguro lo conseguimos igual — <a href="https://wa.me/${WA}?text=${encodeURIComponent('Hola! Estoy buscando: '+term)}" target="_blank" rel="noopener">preguntanos por WhatsApp →</a></div>`;
+    grid.innerHTML = term
+      ? `<div class="empty" style="grid-column:1/-1"><b>No encontramos "${term}"</b>
+      Seguro lo conseguimos igual — <a href="https://wa.me/${WA}?text=${encodeURIComponent('Hola! Estoy buscando: '+term)}" target="_blank" rel="noopener">preguntanos por WhatsApp →</a></div>`
+      : `<div class="empty" style="grid-column:1/-1"><b>Todavía no cargamos fotos acá</b>
+      Seguro lo tenemos igual — <a href="https://wa.me/${WA}?text=${encodeURIComponent('Hola! Busco productos de '+CAT_NAMES[cat])}" target="_blank" rel="noopener">preguntanos por WhatsApp →</a></div>`;
     moreBox.hidden = true;
     return;
   }
@@ -380,10 +407,9 @@ function render(reset){
 document.querySelectorAll('.cat-chip').forEach(ch => ch.addEventListener('click', () => {
   document.querySelectorAll('.cat-chip').forEach(x=>x.classList.remove('act'));
   ch.classList.add('act');
-  cat = ch.dataset.c; sub = '';
-  subOptions(); render(true);
+  cat = ch.dataset.c; brands = [];
+  brandOptions(); render(true);
 }));
-subSel.addEventListener('change', () => { sub = subSel.value; render(true); });
 q.addEventListener('input', () => { term = q.value.trim(); render(true); });
 document.getElementById('moreBtn').addEventListener('click', () => { shown += 48; render(false); });
 
@@ -491,7 +517,7 @@ function toast(t){
 
 /* init */
 updateCount();
-subOptions();
+brandOptions();
 render(true);
 
 /* deep-link: catalogo.html?cat=baterias&q=12x75 */
