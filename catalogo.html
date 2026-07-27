@@ -80,13 +80,21 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 
 /* ── Filtro de marca (solo Radiadores) ── */
 .brand-filter{background:#fff;border-bottom:2px solid var(--navy)}
-.brand-filter .wrap{padding:1rem 0}
-.brand-label{
-  display:block;font-family:var(--display);font-size:.78rem;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--steel-dim);font-weight:700;
-  padding-bottom:.7rem;margin-bottom:.8rem;border-bottom:1px solid var(--paper-dim);
+.brand-filter .wrap{padding:0}
+.brand-toggle{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:.6rem;
+  background:none;border:0;cursor:pointer;padding:.85rem 0;
+  font-family:var(--display);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--navy-deep);font-weight:700;
 }
-.brand-list{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
+.brand-toggle:hover{color:var(--red)}
+.brand-toggle .chev{width:18px;height:18px;transition:transform .2s;flex-shrink:0}
+.brand-toggle[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.brand-list{
+  display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;
+  max-height:0;overflow:hidden;transition:max-height .25s ease,padding .25s ease;
+}
+.brand-list.open{max-height:400px;padding-bottom:1.1rem}
 .brand-item{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--navy-deep);cursor:pointer;user-select:none}
 .brand-item input{width:15px;height:15px;accent-color:var(--red);cursor:pointer;flex-shrink:0}
 .brand-item:hover{color:var(--red)}
@@ -267,7 +275,10 @@ footer a{color:#fff;text-decoration:none}
 
 <div class="brand-filter" id="brandFilter" hidden>
   <div class="wrap">
-    <span class="brand-label">Montadora</span>
+    <button class="brand-toggle" id="brandToggle" aria-expanded="false">
+      <span id="brandToggleText">Filtrar por marca</span>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
     <div class="brand-list" id="brandList"></div>
   </div>
 </div>
@@ -321,6 +332,8 @@ const grid = document.getElementById('grid');
 const q = document.getElementById('q');
 const brandFilter = document.getElementById('brandFilter');
 const brandList = document.getElementById('brandList');
+const brandToggle = document.getElementById('brandToggle');
+const brandToggleText = document.getElementById('brandToggleText');
 const countLine = document.getElementById('countLine');
 const moreBox = document.getElementById('moreBox');
 
@@ -335,6 +348,17 @@ function filtered(){
   );
 }
 
+function brandToggleLabel(){
+  brandToggleText.textContent = brands.length
+    ? `Filtrar por marca (${brands.length} seleccionada${brands.length===1?'':'s'})`
+    : 'Filtrar por marca';
+}
+
+function setBrandOpen(open){
+  brandList.classList.toggle('open', open);
+  brandToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
 function brandOptions(){
   if (cat !== 'radiadores') { brandFilter.hidden = true; brands = []; return; }
   const marcas = [...new Set(PRODUCTS.filter(p=>p.cat==='radiadores').map(p=>p.sub).filter(Boolean))].sort();
@@ -345,10 +369,14 @@ function brandOptions(){
     </label>`).join('');
   brandList.querySelectorAll('input').forEach(inp => inp.addEventListener('change', () => {
     brands = [...brandList.querySelectorAll('input:checked')].map(i=>i.value);
+    brandToggleLabel();
     render(true);
   }));
+  brandToggleLabel();
+  setBrandOpen(false);
   brandFilter.hidden = false;
 }
+brandToggle.addEventListener('click', () => setBrandOpen(!brandList.classList.contains('open')));
 
 function waConsulta(p){
   const msg = `Hola! Quiero consultar precio y disponibilidad de:\n${p.name}${p.code ? ' (código '+p.code+')' : ''}${p.sub ? ' — '+p.sub : ''}`;
