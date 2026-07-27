@@ -675,10 +675,11 @@ footer p b{color:#fff}
       <div class="chips" id="chips">
         <button class="chip act" data-c="todos">Todos</button>
         <button class="chip" data-c="radiadores">Radiadores</button>
-        <button class="chip" data-c="agro">Agro y vial</button>
+        <button class="chip" data-c="turbos">Turbos</button>
         <button class="chip" data-c="baterias">Baterías</button>
+        <button class="chip" data-c="inyeccion">Inyección</button>
         <button class="chip" data-c="repuestos">Repuestos</button>
-        <button class="chip" data-c="taller">Taller</button>
+        <button class="chip" data-c="especiales">Especiales</button>
       </div>
     </div>
     <div class="cat-grid" id="grid"></div>
@@ -932,23 +933,23 @@ const CATALOGO = [
   {c:'radiadores',m:'Volvo',n:'Radiador FM Euro 5 330/370/380/420'},
   {c:'radiadores',m:'Volvo',n:'Radiador FM 10/12 320/340/360/380 (1993+)'},
   /* ── AGRO Y VIAL ── */
-  {c:'agro',m:'Case',n:'Radiador Puma 165/170/180/184/210 · New Holland T7'},
-  {c:'agro',m:'Case',n:'Radiador de aceite 120x37x12'},
-  {c:'agro',m:'Case',n:'Radiador de agua 120x1,8x14,5'},
-  {c:'agro',m:'John Deere',n:'Radiador intercooler 120x37x12'},
-  {c:'agro',m:'John Deere',n:'Radiador 5403/5605/5705 D Braz 45,5x53x8,5'},
-  {c:'agro',m:'Valtra',n:'Radiador BH 180/205/210'},
-  {c:'agro',m:'Caterpillar',n:'Radiador 416E/420E'},
-  {c:'agro',m:'Cosechadoras',n:'Radiador según muestra en aluminio — todos los modelos'},
+  {c:'radiadores',m:'Case',n:'Radiador Puma 165/170/180/184/210 · New Holland T7'},
+  {c:'radiadores',m:'Case',n:'Radiador de aceite 120x37x12'},
+  {c:'radiadores',m:'Case',n:'Radiador de agua 120x1,8x14,5'},
+  {c:'radiadores',m:'John Deere',n:'Radiador intercooler 120x37x12'},
+  {c:'radiadores',m:'John Deere',n:'Radiador 5403/5605/5705 D Braz 45,5x53x8,5'},
+  {c:'radiadores',m:'Valtra',n:'Radiador BH 180/205/210'},
+  {c:'radiadores',m:'Caterpillar',n:'Radiador 416E/420E'},
+  {c:'radiadores',m:'Cosechadoras',n:'Radiador según muestra en aluminio — todos los modelos'},
   /* ── TALLER ── */
-  {c:'taller',m:'Fabricación',n:'Tanques de combustible a medida según muestra'},
-  {c:'taller',m:'Fabricación',n:'Tanques de radiador a medida según muestra'},
-  {c:'taller',m:'Reparación',n:'Reparación de radiador según muestra'},
-  {c:'taller',m:'Reparación',n:'Cambio de panel de radiador'},
-  {c:'taller',m:'Reparación',n:'Limpieza y mantenimiento de radiadores'},
-  {c:'taller',m:'Reparación',n:'Reparación de válvulas de freno'},
-  {c:'taller',m:'Aluminio',n:'Reparación de block de aluminio'},
-  {c:'taller',m:'Competición',n:'Radiadores de competición en aluminio'},
+  {c:'especiales',m:'Fabricación',n:'Tanques de combustible a medida según muestra'},
+  {c:'especiales',m:'Fabricación',n:'Tanques de radiador a medida según muestra'},
+  {c:'especiales',m:'Reparación',n:'Reparación de radiador según muestra'},
+  {c:'especiales',m:'Reparación',n:'Cambio de panel de radiador'},
+  {c:'especiales',m:'Reparación',n:'Limpieza y mantenimiento de radiadores'},
+  {c:'especiales',m:'Reparación',n:'Reparación de válvulas de freno'},
+  {c:'especiales',m:'Aluminio',n:'Reparación de block de aluminio'},
+  {c:'especiales',m:'Competición',n:'Radiadores de competición en aluminio'},
   /* ── BATERÍAS ── */
   {c:'baterias',m:'Auto / Camioneta',n:'Batería 12x45 amperes'},
   {c:'baterias',m:'Auto / Camioneta',n:'Batería 12x65 amperes'},
@@ -1032,7 +1033,8 @@ const CATALOGO = [
 const grid = document.getElementById('grid');
 const q = document.getElementById('q');
 const chips = document.querySelectorAll('.chip');
-const CAT_LABEL = {radiadores:'Radiador',agro:'Agro / Vial',baterias:'Batería',repuestos:'Repuesto',taller:'Taller'};
+const CAT_LABEL = {radiadores:'Radiador',turbos:'Turbo',baterias:'Batería',inyeccion:'Inyección',repuestos:'Repuesto',especiales:'Especial'};
+const CAT_NAME = {radiadores:'Radiadores',turbos:'Turbos',baterias:'Baterías',inyeccion:'Inyección',repuestos:'Repuestos',especiales:'Especiales'};
 let cat = 'todos';
 
 function waLink(item){
@@ -1046,8 +1048,11 @@ function render(){
     (!term || (it.m+' '+it.n).toLowerCase().includes(term))
   );
   if(!list.length){
-    grid.innerHTML = `<div class="cat-empty"><b>No encontramos "${q.value}"</b>
-      Igual seguro lo conseguimos — <a href="https://wa.me/${WA}?text=${encodeURIComponent('Hola! Estoy buscando: '+q.value)}" target="_blank" rel="noopener" style="color:var(--red);font-weight:700">preguntanos por WhatsApp →</a></div>`;
+    grid.innerHTML = term
+      ? `<div class="cat-empty"><b>No encontramos "${q.value}"</b>
+      Igual seguro lo conseguimos — <a href="https://wa.me/${WA}?text=${encodeURIComponent('Hola! Estoy buscando: '+q.value)}" target="_blank" rel="noopener" style="color:var(--red);font-weight:700">preguntanos por WhatsApp →</a></div>`
+      : `<div class="cat-empty"><b>Todavía no cargamos fotos acá</b>
+      Seguro lo tenemos igual — <a href="https://wa.me/${WA}?text=${encodeURIComponent('Hola! Busco productos de '+(CAT_NAME[cat]||''))}" target="_blank" rel="noopener" style="color:var(--red);font-weight:700">preguntanos por WhatsApp →</a></div>`;
     return;
   }
   grid.innerHTML = list.map(it=>`
