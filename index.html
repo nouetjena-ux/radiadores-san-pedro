@@ -240,7 +240,14 @@ section{padding:5.5rem 0;position:relative}
 }
 .chip.act,.chip:hover{background:var(--navy);color:#fff}
 .chip.act{box-shadow:4px 4px 0 var(--red)}
-.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.8rem;min-height:200px}
+.cat-hint{
+  display:flex;align-items:center;gap:.7rem;padding:1.4rem 1.6rem;margin-bottom:1.2rem;
+  background:#fff;border:2px dashed var(--navy);color:#4b5a6e;font-weight:600;font-size:.92rem;
+}
+.cat-hint svg{color:var(--red);flex-shrink:0}
+.cat-hint[hidden]{display:none}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.8rem;max-height:0;overflow:hidden;transition:max-height .35s ease}
+.cat-grid.open{max-height:9000px;min-height:200px}
 .item{
   background:#fff;border:1px solid var(--paper-dim);border-left:4px solid var(--navy);
   padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.5rem;
@@ -682,6 +689,10 @@ footer p b{color:#fff}
         <button class="chip" data-c="especiales">Especiales</button>
       </div>
     </div>
+    <div class="cat-hint rv" id="catHint">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19V5M12 5l-6 6M12 5l6 6"/></svg>
+      Elegí una categoría o buscá un producto para ver el catálogo
+    </div>
     <div class="cat-grid" id="grid"></div>
     <div class="cat-more rv">
       <p><b>¿No encontrás lo que buscás?</b> El catálogo completo tiene cientos de artículos más. Descargalo en PDF o escribinos directo — si no lo tenemos, lo conseguimos.</p>
@@ -1031,17 +1042,26 @@ const CATALOGO = [
 ];
 
 const grid = document.getElementById('grid');
+const catHint = document.getElementById('catHint');
 const q = document.getElementById('q');
 const chips = document.querySelectorAll('.chip');
 const CAT_LABEL = {radiadores:'Radiador',turbos:'Turbo',baterias:'Batería',inyeccion:'Inyección',repuestos:'Repuesto',especiales:'Especial'};
 const CAT_NAME = {radiadores:'Radiadores',turbos:'Turbos',baterias:'Baterías',inyeccion:'Inyección',repuestos:'Repuestos',especiales:'Especiales'};
 let cat = 'todos';
+let started = false;
 
 function waLink(item){
   const msg = `Hola! Quiero consultar precio y disponibilidad de: ${item.m} — ${item.n}`;
   return `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
 }
 function render(){
+  if(!started){
+    grid.classList.remove('open');
+    catHint.hidden = false;
+    return;
+  }
+  grid.classList.add('open');
+  catHint.hidden = true;
   const term = q.value.trim().toLowerCase();
   const list = CATALOGO.filter(it =>
     (cat==='todos'||it.c===cat) &&
@@ -1069,9 +1089,10 @@ chips.forEach(ch=>ch.addEventListener('click',()=>{
   chips.forEach(x=>x.classList.remove('act'));
   ch.classList.add('act');
   cat = ch.dataset.c;
+  started = true;
   render();
 }));
-q.addEventListener('input',render);
+q.addEventListener('input',()=>{ started = true; render(); });
 render();
 
 /* ══════════ Scroll reveal ══════════ */
