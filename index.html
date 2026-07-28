@@ -1086,6 +1086,11 @@ function render(){
     </article>`).join('');
 }
 chips.forEach(ch=>ch.addEventListener('click',()=>{
+  if(started && ch.dataset.c === cat && !q.value.trim()){
+    started = false;
+    render();
+    return;
+  }
   chips.forEach(x=>x.classList.remove('act'));
   ch.classList.add('act');
   cat = ch.dataset.c;
